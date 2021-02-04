@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1.li1= title
+  h4 Welcome to Number Library, a Mathematician Website maded by a young boy who is interested in maths.
+  | Here you can see, update, and create numbers, formulas, mathematicians and number types, and anyone who
+  | is curious could see it!
+
+  div(style='margin-top:20px;margin-left:20px')
+    p #[strong List of Created Instances]
+
+    ul
+      li
+        p.li2 #[strong Numbers]: #{numbers}
+      li
+        p.li3 #[strong Mathematicians]: #{mathematicians}
+      li
+        p.li4 #[strong Number Types]: #{numbertypes}
+      li
+        p.li5 #[strong Formulas]: #{formulas}
+
+  p.footer Created By Alex Perez - 15 Years Old -

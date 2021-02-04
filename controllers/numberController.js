@@ -1,7 +1,28 @@
 const express = require('express');
+const Mathematician = require('../models/mathematician');
+const Number = require('../models/number');
+const NumberType = require('../models/numbertype');
+const Formula = require('../models/formula');
+const async = require('async');
 
 exports.home = function (req,res,next) {
-    res.render('index',{title:'Number Library'});
+    async.parallel({
+        mathematicians:(cb) => {
+            Mathematician.countDocuments(cb);
+        },
+        numbers:(cb) => {
+            Number.countDocuments(cb);
+        },
+        numbertypes:(cb) => {
+            NumberType.countDocuments(cb);
+        },
+        formulas:(cb) => {
+            Formula.countDocuments(cb);
+        }
+    },(err,results) => {
+        if(err) return next(err);
+        res.render('home',{title:'Number Library',mathematicians:results.mathematicians,numbers:results.numbers,numbertypes:results.numbertypes,formulas:results.formulas});
+    })
 }
 exports.number_list = (req,res,next) => {
     res.render('TODO: Implement numberController.number_list method');
