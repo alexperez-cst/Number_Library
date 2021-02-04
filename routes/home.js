@@ -42,3 +42,5 @@ router.get('/formula/:id/update',formulaController.formula_update_get);
 router.post('/formula/:id/update',formulaController.formula_update_post);
 router.get('/formula/:id/delete',formulaController.formula_delete_get);
 router.post('/formula/:id/delete',formulaController.formula_delete_post);
+
+module.exports = router;

@@ -1,7 +1,7 @@
 const express = require('express');
 
-exports.home = (req,res,next) => {
-    res.render('TODO: Implement numberController.home method');
+exports.home = function (req,res,next) {
+    res.render('index',{title:'Number Library'});
 }
 exports.number_list = (req,res,next) => {
     res.render('TODO: Implement numberController.number_list method');
