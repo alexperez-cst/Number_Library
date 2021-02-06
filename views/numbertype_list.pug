@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1.li5= title
+
+  h4 Welcome to the Number Types section! Here you can find all type of number types (Real, Complex, Natural, etc)
+  | Feel free to update or create new number types!
+
+  div(style='margin-top:20px;margin-left:20px')
+    p#title #[strong Number Types:]
+    if numbertypes
+      ul
+        each numbertype in numbertypes
+          li
+            a(href=numbertype.url class='li5') #{numbertype.name}
+    else
+      p #[strong Sorry but there aren't any number type created.]
+
+  p.footer Created By Alex Perez - 15 Years Old -

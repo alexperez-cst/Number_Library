@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1.li2= title
+
+  div(id=latex)
+    script(src="https://polyfill.io/v3/polyfill.min.js?features=es6" async)
+    script(id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js")
+    p $$#{number.number}$$
+
+  div(style='margin-top:20px;margin-left:20px')
+    if number.author
+      h5.li3 #[strong Mathematician:]
+        a(href=number.author.url) #{number.author.fullname}
+    else
+      h5.li3 #[strong Mathematician:]
+        p Sorry but this number hasn't any mathematician
+    br
+    h5.li5 #[strong Number Type:]
+     a(href=number.numbertype.url) #{number.numbertype.name}
+    br
+    h4 #{number.description}
+  br
+  a(href=number.url + '/update' class='li2') Update Number
+  br
+  br
+  p.footer Created By Alex Perex - 15 Years Old -

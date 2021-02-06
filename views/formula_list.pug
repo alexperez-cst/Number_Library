@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1.li4= title
+
+  h4 Welcome to the Formulas section! Here you can find all type of formulas (Euler's Formula, Quadratic Formula, Partial Sums Formula, etc)
+  | Feel free to update or create new formulas!
+
+  div(style='margin-top:20px;margin-left:20px')
+    p#title #[strong Formulas:]
+    if formulas
+      ul
+        each formula in formulas
+          li
+            a(href=formula.url class='li4') #{formula.name}
+    else
+      p #[strong Sorry but there aren't any formula created.]
+
+  p.footer Created By Alex Perez - 15 Years Old -

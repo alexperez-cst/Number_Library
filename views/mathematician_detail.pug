@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1.li3= title
+
+  div(style='margin-left:20px;margin-top:20px')
+    h5#title #[strong Lifespan:] #{mathematician.lifespan}
+    br
+    h5.li2 #[strong Numbers:]
+      ul
+      each number in numbers
+          li
+            a(href=number.url) #{number.name}
+      else
+        p Sorry but this mathematician hasn't any number.
+    br
+    h5.li4 #[strong Formulas:]
+      ul
+      each formula in formulas
+        li
+          a(href=formula.url) #{formula.name}
+      else
+        p Sorry but this mathematician hasn't any formula.
+
+  p.footer Created By Alex Perez - 15 Years Old -

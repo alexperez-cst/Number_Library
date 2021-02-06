@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1.li2= title
+
+  h4 Welcome to the Number section! Here you can find all type of numbers (Pi, Euler's Constant, Three, etc)
+  | Feel free to update or create new numbers!
+
+  div(style='margin-top:20px;margin-left:20px')
+    p#title #[strong Numbers:]
+    if numbers
+      ul
+        each number in numbers
+          li
+            a(href=number.url class='li2') #{number.name}
+    else
+      p #[strong Sorry but there aren't any number created.]
+
+  p.footer Created By Alex Perez - 15 Years Old -

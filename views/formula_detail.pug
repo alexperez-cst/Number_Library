@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1.li4= title
+
+  div(id=latex)
+    script(src="https://polyfill.io/v3/polyfill.min.js?features=es6" async)
+    script(id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js")
+    p $$#{formula.formula}$$
+
+    if formula.author
+      h5.li3 #[strong Mathematician:]
+        a(href=formula.author.url) #{formula.author.fullname}
+    else
+      h5.li3 #[strong Mathematician:]
+        p Sorry but this formula hasn't any mathematician
+  br
+  h4 #{formula.description}

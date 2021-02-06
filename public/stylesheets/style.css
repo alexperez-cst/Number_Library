@@ -12,19 +12,22 @@ body{
   padding: 0;
   list-style: none;
 }
-li a{
+a{
   padding:0.5em !important;
   color:#D8DEE9 !important;
-  font-size: 1.125em;
-  text-decoration: none;
+  font-size: 1.125em !important;
+  text-decoration: none !important;
   border-radius: 10px;
   transition:0.5s;
 }
-li a:hover{
+a:hover{
   background-color: #ECEFF455
 }
 li{
   margin-top: 1em;
+}
+label{
+  font-size:1em !important;
 }
 .li2{
   color:#BF616A !important;
@@ -44,13 +47,29 @@ li{
 .footer{
   color: #E5E9F055 !important;
 }
+.form-check-input:checked{
+  background-color:#BF616A !important;
+}
+.form-control{
+  background-color: #4c566a !important;
+  border:1px solid #D8DEE9 !important;
+  color:#D8DEE9 !important;
+}
+.MathJax{
+  font-size:3em !important;
+  text-align: left !important;
+  margin-left: 20px !important;
+}
 #pad{
   margin-top: 20px;
   color:#D8DEE9 !important;
   font-family: 'Rubik', sans-serif !important;
   font-weight: 400 !important;
 }
-#title{
+h1{
+  font-size: 2.25em !important;
   font-weight: 600 !important;
+}
+#title{
   color:#8FBCBB !important;
 }

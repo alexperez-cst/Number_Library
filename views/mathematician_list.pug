@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1.li3= title
+
+  h4 Welcome to the Mathematicians section! Here you can find all type of mathematicians (Euler, Gauss, Riemann, etc)
+  | Feel free to update or create new mathematicians!
+
+  div(style='margin-top:20px;margin-left:20px')
+    p#title #[strong Mathematicians:]
+    if mathematicians
+      ul
+        each mathematician in mathematicians
+          li
+            a(href=mathematician.url class='li3') #{mathematician.fullname}
+    else
+      p #[strong Sorry but there aren't any mathematician created.]
+
+  p.footer Created By Alex Perez - 15 Years Old -
