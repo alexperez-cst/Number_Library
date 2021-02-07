@@ -3,13 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const helmet = require('helmet');
+const compression = require('compression');
 const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var homeRouter = require('./routes/home');
 
 var app = express();
 
-const mongoDB = 'mongodb+srv://alexperezcst:palex4490@cluster0.3atss.mongodb.net/numberLibrary?retryWrites=true&w=majority';
+app.use(helmet());
+
+const dev_db_url = 'mongodb+srv://alexperezcst:palex4490@cluster0.3atss.mongodb.net/numberLibrary?retryWrites=true&w=majority';
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -22,6 +27,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(compression());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
