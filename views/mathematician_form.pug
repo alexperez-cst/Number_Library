@@ -14,10 +14,10 @@ block content
     br
     div.form-group
       label(for='date_birth') Date of birth:
-      input#date_birth.form-control(type='date' name='date_birth' value=(undefined===mathematician ? '' : mathematician.date_birth) )
+      input#date_birth.form-control(type='date' name='date_birth' value=(undefined===mathematician ? '' : mathematician.date_birth_yyyy_mm_dd) )
       br
       label(for='date_death') Date of Death:
-      input#date_death.form-control(type='date', name='date_death', value=(undefined===mathematician ? '' : mathematician.date_death) )
+      input#date_death.form-control(type='date', name='date_death', value=(undefined===mathematician ? '' : mathematician.date_death_yyyy_mm_dd) )
     br
     button.btn.btn-primary(type='submit') Submit
 

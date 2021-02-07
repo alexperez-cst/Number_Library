@@ -17,15 +17,15 @@ block content
       select#mathematician.form-control(type='select', placeholder='Select Mathematician' name='mathematician' required='true' )
         - mathematicians.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
           for mathematician in mathematicians
-            if number
-              option(value=mathematician._id selected=(mathematician._id.toString()==formula.mathematician._id || mathematician._id.toString()==formula.mathematician) ? 'selected' : false) #{mathematician.fullname}
+            if formula
+              option(value=mathematician._id selected=(mathematician._id.toString()==formula.author._id || mathematician._id.toString()==formula.author) ? 'selected' : false) #{mathematician.fullname}
             else
               option(value=mathematician._id) #{mathematician.fullname}
           option(value='') None
     br
     div.form-group
       label(for='description') Description:
-      textarea#description.form-control(type='text' placeholder='Write a Description' name='description' required='true' value=(undefined===formula ? '' : formula.description))
+      input#description.form-control(type='text' placeholder='Write a Description' name='description' required='true' value=(undefined===formula ? '' : formula.description))
     br
     button.btn.btn-primary(type='submit') Submit
 

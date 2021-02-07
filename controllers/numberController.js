@@ -163,8 +163,18 @@ exports.number_update_post = [
     })
 }]
 exports.number_delete_get = (req,res,next) => {
-    res.render('TODO: Implement numberController.number_delete_get method');
+     Number.findById(req.params.id)
+           .exec((err,number) => {
+               if(err) return next(err);
+               if(!number) {
+                   res.redirect('/home/numbers');
+               }
+               res.render('number_delete',{title:'Delete Number',number:number});
+           })
 }
 exports.number_delete_post = (req,res,next) => {
-    res.render('TODO: Implement numberController.number_delete_post method');
+     Number.findByIdAndRemove(req.body.numberid,(err) => {
+        if(err) return next(err);
+        res.redirect('/home/numbers');
+    })
 }

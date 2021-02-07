@@ -21,6 +21,14 @@ mathematicianSchema.virtual('date_death_formatted')
                    .get(function(){
                        return this.date_death ? DateTime.fromJSDate(this.date_death).toLocaleString(DateTime.DATE_MED) : '';
                    });
+mathematicianSchema.virtual('date_birth_yyyy_mm_dd')
+                   .get(function(){
+                       return !this.date_birth ? '' : DateTime.fromJSDate(this.date_birth).toFormat('yyyy-MM-dd');
+                   });
+mathematicianSchema.virtual('date_death_yyyy_mm_dd')
+                   .get(function(){
+                       return !this.date_death ? '' : DateTime.fromJSDate(this.date_death).toFormat('yyyy-MM-dd');
+                   });
 mathematicianSchema.virtual('lifespan')
                    .get(function(){
                        return `${this.date_birth_formatted} - ${this.date_death_formatted}`;
